@@ -64,4 +64,20 @@ public class ReqresNoPojoTest {
         Assert.assertEquals(4, id);
         Assert.assertEquals("QpwL5tke4Pnpja7X4",token);
     }
+    @Test
+    public void unSuccessRegTestNoPojoTest() {
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpec400());
+        Map<String, String> user = new HashMap<>();
+        user.put("email","eve.holt@reqres.in");
+        Response response = given()
+                .body(user)
+                .when()
+                .post("api/register")
+                .then().log().all()
+                .extract().response();
+        JsonPath jsonPath = response.jsonPath();
+        String error = jsonPath.get("error");
+        Assert.assertEquals("Missing password", error);
+
+    }
 }
