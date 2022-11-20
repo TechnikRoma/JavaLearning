@@ -1,7 +1,7 @@
 package api;
 
 public class UnSuccessReg {
-    private String error;
+    private final String error;
 
     public UnSuccessReg(String error) {
         this.error = error;

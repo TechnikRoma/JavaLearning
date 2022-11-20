@@ -1,8 +1,8 @@
 package api;
 
 public class UserTime {
-    private String name;
-    private String job;
+    private final String name;
+    private final String job;
 
     public UserTime(String name, String job) {
         this.name = name;

@@ -14,7 +14,7 @@ public class ReqresTest {
 
     @Test
     public void checkAvatarAndIdTest() {
-        Specifications.installSecification(Specifications.requestSpec(URL), Specifications.responseSpec200());
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpec200());
         List<UserData> users = given()
                 .when()
 
@@ -37,7 +37,7 @@ public class ReqresTest {
 
     @Test
     public void successRegTest() {
-        Specifications.installSecification(Specifications.requestSpec(URL), Specifications.responseSpec200());
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpec200());
         Integer id = 4;
         String token = "QpwL5tke4Pnpja7X4";
         Register user = new Register("eve.holt@reqres.in", "pistol");
@@ -56,7 +56,7 @@ public class ReqresTest {
 
     @Test
     public void unSuccessRegTest() {
-        Specifications.installSecification(Specifications.requestSpec(URL), Specifications.responseSpec400());
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpec400());
         Register user = new Register("eve.holt@reqres.in", "");
         UnSuccessReg unSuccessReg = given()
                 .body(user)
@@ -70,7 +70,7 @@ public class ReqresTest {
 
     @Test
     public void sortedYearsTest() {
-        Specifications.installSecification(Specifications.requestSpec(URL), Specifications.responseSpec200());
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpec200());
         List<ColorsData> colors = given()
                 .when()
                 .get(("api/unknown"))
@@ -86,7 +86,7 @@ public class ReqresTest {
 
     @Test
     public void deleteUserTest() {
-        Specifications.installSecification(Specifications.requestSpec(URL), Specifications.responseSpecUnique(204));
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecUnique(204));
         given()
                 .when()
                 .delete(("api/users/2"))
@@ -96,7 +96,7 @@ public class ReqresTest {
 
     @Test
     public void timeCorrectTest() {
-        Specifications.installSecification(Specifications.requestSpec(URL), Specifications.responseSpec200());
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpec200());
         UserTime user = new UserTime("morpheus", "zion resident");
         UserTimeResponse response = given()
                 .body(user)

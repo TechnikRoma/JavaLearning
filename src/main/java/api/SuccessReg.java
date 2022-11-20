@@ -1,8 +1,8 @@
 package api;
 
 public class SuccessReg {
-    private Integer id;
-    private String token;
+    private final Integer id;
+    private final String token;
 
     public SuccessReg(Integer id, String token) {
         this.id = id;
